@@ -1,0 +1,41 @@
+﻿@model dynamics2.Models.ViewModel
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create", "Employee", FormMethod.Post))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Employee.EId, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.Employee.EId, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Employee.EId, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Employee.EName, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.Employee.EName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Employee.EName, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Employee.ESalary, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.Employee.ESalary, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Employee.ESalary, "", new { @class = "text-danger" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Employee.DId, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.DropDownListFor(m => m.Employee.DId, Model.Department, "-- Select Department --")
+        @Html.ValidationMessageFor(model => model.Employee.DId, "", new { @class = "text-danger" })
+
+    </div>
+
+   
+            <input type="submit" value="Create" class="btn btn-dark" />
+        
+    
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

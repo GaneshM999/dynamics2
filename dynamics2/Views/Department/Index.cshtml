@@ -1,0 +1,33 @@
+﻿@model IEnumerable<dynamics2.Models.Department>
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Department Id</th>
+            <th>Department Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+     {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DName)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.DId },new {@class= "btn btn-success" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.DId }, new { @class = "btn btn-warning" })
+            </td>
+        </tr>
+     }
+
+</table>
